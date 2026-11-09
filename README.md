@@ -2,7 +2,7 @@
 
 Personal portfolio of **Umar Ali**, an aspiring Cloud & DevOps Engineer and BBIT student at the University of the Punjab.
 
-**Live site**: _coming soon on Vercel_
+**Live site**: https://umar-ali-portfolio.vercel.app
 
 ## Sections
 
