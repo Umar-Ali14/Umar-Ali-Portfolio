@@ -54,23 +54,49 @@ export const education = [
 export const skillGroups = [
   {
     title: 'AWS',
-    description: 'Services I have used in hands-on projects and labs.',
-    skills: ['EC2', 'VPC', 'S3', 'IAM (Roles, OIDC)', 'Lambda', 'CloudWatch', 'CloudFront', 'Route 53', 'DynamoDB'],
+    description: "Services I've used in hands-on projects and labs.",
+    skills: [
+      'EC2',
+      'VPC',
+      'S3',
+      'IAM Roles & GitHub Actions OIDC',
+      'Lambda',
+      'CloudWatch',
+      'CloudFront',
+      'Route 53',
+      'DynamoDB',
+      'Bedrock',
+    ],
   },
   {
     title: 'Infrastructure as Code',
     description: 'Repeatable, version-controlled infrastructure.',
-    skills: ['Terraform', 'Reusable Modules', 'Multi-Environment Layout', 'Tagging', 'Version Pinning'],
+    skills: [
+      'Terraform',
+      'Reusable Modules',
+      'Multi-Environment Layout',
+      'Terraform Variables & Outputs',
+      'Tagging',
+      'Version Pinning',
+    ],
   },
   {
     title: 'CI/CD & Version Control',
-    description: 'Automated delivery without manual uploads or stored keys.',
-    skills: ['GitHub Actions', 'AWS CLI', 'Automated S3 Deployments', 'Git', 'GitHub'],
+    description: 'Automated delivery without manual uploads or long-lived access keys.',
+    skills: ['GitHub Actions', 'AWS CLI', 'AWS S3 Deployment Automation', 'Git', 'GitHub'],
   },
   {
     title: 'Linux & Scripting',
-    description: 'Day-to-day operations and automation.',
-    skills: ['Linux CLI', 'File Permissions', 'Process Management', 'Bash', 'Python (boto3)'],
+    description: 'Day-to-day system operations and automation.',
+    skills: [
+      'Linux CLI',
+      'File Permissions',
+      'Process Management',
+      'Package Management',
+      'SSH',
+      'Bash & Shell Scripting',
+      'Python (boto3)',
+    ],
   },
 ];
 

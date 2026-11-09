@@ -14,7 +14,7 @@ const SkillsSection = () => {
           eyebrow="My toolkit"
           title="The Stack Behind"
           highlight="My Work"
-          subtitle="The AWS services, automation tools and languages I use to build reliable infrastructure."
+          subtitle="The AWS services, automation tools, and technologies I use to build secure, reliable, and cost-efficient cloud infrastructure."
         />
 
         <div className="grid gap-6 md:grid-cols-2">
@@ -50,8 +50,8 @@ const SkillsSection = () => {
 
         <Reveal className="mt-14 text-center text-sm text-muted-foreground">
           <Sparkles className="mr-2 inline h-4 w-4 text-primary" />
-          10+ hands-on AWS labs across compute, networking, storage, databases and IAM.{' '}
-          <span className="text-foreground">Always learning, always automating.</span>
+          10+ Hands-on AWS Labs across compute, networking, storage, databases, and IAM.{' '}
+          <span className="text-foreground">Always learning. Always building. Always automating.</span>
         </Reveal>
       </div>
     </section>
