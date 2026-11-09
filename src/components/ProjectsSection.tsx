@@ -81,25 +81,7 @@ const ProjectsSection = () => {
                   <h3 className="text-xl font-bold leading-snug text-foreground transition-colors group-hover:text-primary">
                     {project.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
-
-                  <ul className="mt-4 space-y-2">
-                    {project.highlights.map((h) => (
-                      <li key={h} className="flex gap-2.5 text-sm leading-relaxed text-muted-foreground">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {project.impact && (
-                    <div className="mt-5 rounded-r-lg border-l-2 border-emerald-400/70 bg-emerald-400/[0.06] py-3 pl-4 pr-3">
-                      <p className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-400">
-                        <TrendingUp className="h-3.5 w-3.5" /> Business Impact
-                      </p>
-                      <p className="mt-1.5 text-sm leading-relaxed text-foreground/85">{project.impact}</p>
-                    </div>
-                  )}
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.summary}</p>
 
                   <div className="mb-6 mt-5 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
@@ -122,16 +104,41 @@ const ProjectsSection = () => {
                       <Dialog>
                         <DialogTrigger asChild>
                           <button className="inline-flex items-center gap-2 rounded-lg border border-primary/40 bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/20">
-                            <Workflow className="h-4 w-4" /> View Architecture
+                            <Workflow className="h-4 w-4" /> Architecture &amp; Details
                           </button>
                         </DialogTrigger>
                         <DialogContent className="max-h-[92vh] w-[calc(100vw-1.5rem)] max-w-6xl overflow-y-auto border-border bg-card p-4 sm:p-6">
                           <DialogTitle className="pr-8 text-base font-semibold text-foreground sm:text-lg">
-                            {project.title} — Architecture
+                            {project.title}
                           </DialogTitle>
-                          <DialogDescription className="sr-only">
-                            Architecture diagram for {project.title}
+                          <DialogDescription className="text-sm leading-relaxed text-muted-foreground">
+                            {project.description}
                           </DialogDescription>
+
+                          {/* Full technical details + business impact (kept off the card to keep it scannable) */}
+                          <div className="grid gap-4 md:grid-cols-[1.4fr_1fr]">
+                            <div className="card-inner p-4">
+                              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Key Details</p>
+                              <ul className="mt-3 space-y-2">
+                                {project.highlights.map((h) => (
+                                  <li key={h} className="flex gap-2.5 text-sm leading-relaxed text-muted-foreground">
+                                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                                    {h}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                            {project.impact && (
+                              <div className="rounded-r-lg border-l-2 border-emerald-400/70 bg-emerald-400/[0.06] py-3 pl-4 pr-3">
+                                <p className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-400">
+                                  <TrendingUp className="h-3.5 w-3.5" /> Business Impact
+                                </p>
+                                <p className="mt-1.5 text-sm leading-relaxed text-foreground/85">{project.impact}</p>
+                              </div>
+                            )}
+                          </div>
+
+                          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Architecture</p>
                           <img
                             src={project.architecture}
                             alt={`${project.title} architecture diagram`}

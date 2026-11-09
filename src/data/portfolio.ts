@@ -120,14 +120,15 @@ export const learning = [
 export type Project = {
   category: string;
   title: string;
-  description: string;
-  highlights: string[];
+  summary: string; // 2–3 short lines shown on the card (purpose + value)
+  description: string; // full description, shown in the details popup
+  highlights: string[]; // technical details, shown in the details popup
   tags: string[];
   flow: string[]; // simple architecture flow shown on the card header
   repo?: string;
   demo?: string;
   status?: 'In Progress';
-  impact?: string; // shown under the highlights as "Business Impact"
+  impact?: string; // "Business Impact" note, shown in the details popup
   architecture?: string; // diagram opened by the "View Architecture" button
 };
 
@@ -135,6 +136,8 @@ export const projects: Project[] = [
   {
     category: 'Infrastructure as Code',
     title: 'Multi-Environment AWS Infrastructure',
+    summary:
+      'Terraform modules that deploy isolated Dev, Staging and Production AWS environments, keeping infrastructure consistent.',
     description:
       'Reusable Terraform modules (network, security, compute) that build separate Dev, Staging and Production environments, each with its own VPC, settings and state.',
     highlights: [
@@ -153,6 +156,8 @@ export const projects: Project[] = [
   {
     category: 'CI/CD',
     title: 'CI/CD Pipeline for Automated S3 Deployment',
+    summary:
+      'GitHub Actions pipeline that deploys to S3 on every push using IAM OIDC, with no stored keys and no manual uploads.',
     description:
       'A GitHub Actions workflow that syncs the site to S3 on every push to main, so there are no manual uploads.',
     highlights: [
@@ -169,6 +174,8 @@ export const projects: Project[] = [
   {
     category: 'Serverless',
     title: 'AWS Cost Optimization System',
+    summary:
+      'Event-driven system that flags idle EC2 instances with CloudWatch and a Python Lambda, logging decisions to S3.',
     description:
       'An event-driven system that flags idle EC2 instances: a CloudWatch alarm (CPU below 5%) triggers a Python Lambda that classifies each instance.',
     highlights: [
@@ -186,6 +193,8 @@ export const projects: Project[] = [
   {
     category: 'Content Delivery',
     title: 'Static Website with Global CDN',
+    summary:
+      'Static site served worldwide from S3 via CloudFront, with HTTPS, edge caching and a custom Route 53 domain.',
     description:
       'A static site hosted on S3 behind CloudFront with HTTPS redirect and caching, on a custom domain set up in Route 53.',
     highlights: [
