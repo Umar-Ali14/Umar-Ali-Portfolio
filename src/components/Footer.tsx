@@ -1,6 +1,7 @@
 import { ArrowUp, ArrowUpRight, Github, Linkedin, Mail, MapPin, Rocket } from 'lucide-react';
 import Reveal from './Reveal';
 import { profile } from '@/data/portfolio';
+import { WhatsAppIcon } from './BrandIcons';
 
 const navigation = [
   { name: 'Home', href: '#home' },
@@ -99,6 +100,20 @@ const Footer = () => {
               <span className="min-w-0">
                 <span className="block text-[11px] text-muted-foreground">Email</span>
                 <span className="block truncate text-foreground">{profile.email}</span>
+              </span>
+            </a>
+            <a
+              href={`https://wa.me/${profile.whatsapp.number}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 text-sm"
+            >
+              <span className="icon-box h-9 w-9">
+                <WhatsAppIcon className="h-4 w-4" />
+              </span>
+              <span className="min-w-0">
+                <span className="block text-[11px] text-muted-foreground">Business WhatsApp</span>
+                <span className="block truncate text-foreground">{profile.whatsapp.display}</span>
               </span>
             </a>
             <div className="flex items-center gap-3 text-sm">

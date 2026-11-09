@@ -16,6 +16,8 @@ export const profile = {
   headline: 'AWS Cloud Engineer',
   email: 'mianumarali7221@gmail.com',
   location: 'Lahore, Pakistan',
+  // Business WhatsApp: number is international format without "+" or the local leading 0 (used in wa.me links)
+  whatsapp: { number: '923402355989', display: '+92 340 2355989' },
   github: 'https://github.com/Umar-Ali14',
   linkedin: 'https://www.linkedin.com/in/umar-ali-043b13274/',
   linkedinCertifications: 'https://www.linkedin.com/in/umar-ali-043b13274/details/certifications/',
