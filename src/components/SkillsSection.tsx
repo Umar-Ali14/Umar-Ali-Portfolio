@@ -22,7 +22,7 @@ const SkillsSection = () => {
             return (
               <Reveal
                 key={group.title}
-                className="skill-card rounded-3xl border border-border/80 bg-card/60 p-8 backdrop-blur-sm transition-colors duration-300 hover:border-primary/40"
+                className="skill-card glow-card rounded-3xl border border-border/80 bg-card/60 p-8 backdrop-blur-sm transition-colors duration-300 hover:border-primary/40"
                 delay={(gi % 2) * 120}
               >
                 {/* Card header */}

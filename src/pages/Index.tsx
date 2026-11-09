@@ -8,8 +8,11 @@ import CertificationsSection from '@/components/CertificationsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import SpaceBackground from '@/components/SpaceBackground';
+import { useCardGlow } from '@/hooks/use-card-glow';
 
 const Index = () => {
+  useCardGlow();
+
   return (
     <div className="relative min-h-screen overflow-x-hidden">
       <SpaceBackground />

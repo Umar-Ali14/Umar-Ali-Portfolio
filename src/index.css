@@ -89,6 +89,103 @@
     @apply rounded-xl border border-border/70 bg-secondary/40;
   }
 
+  /*
+   * Cursor-following edge glow (hover only; driven by useCardGlow()).
+   * --mx / --my hold the cursor position inside the box. ::before paints a
+   * thin ring that is brightest nearest the cursor, ::after a faint spotlight.
+   * Big cards (.card-surface, .glow-card) and the small boxes inside them
+   * (.card-inner) both glow, but only the innermost hovered box at a time.
+   * Utilities (e.g. .absolute) still beat the position set here because they
+   * load in a later layer, so layout is unchanged.
+   */
+  .card-surface,
+  .glow-card,
+  .card-inner {
+    position: relative;
+    --mx: 50%;
+    --my: 50%;
+    --glow-size: 260px;
+    --glow-shadow: 0 0 28px -8px hsl(212 100% 56% / 0.35);
+  }
+
+  .card-surface,
+  .glow-card {
+    transition: box-shadow 0.4s ease, border-color 0.3s ease;
+  }
+
+  .card-inner {
+    --glow-size: 150px;
+  }
+
+  .card-surface::before,
+  .glow-card::before,
+  .card-inner::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: radial-gradient(
+      var(--glow-size) circle at var(--mx) var(--my),
+      hsl(198 100% 72% / 0.75),
+      hsl(212 100% 58% / 0.35) 40%,
+      transparent 72%
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .card-surface::after,
+  .glow-card::after,
+  .card-inner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      calc(var(--glow-size) * 1.5) circle at var(--mx) var(--my),
+      hsl(212 100% 60% / 0.05),
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Hovered box: show ring + spotlight and a soft halo (existing shadows kept). */
+  .card-surface:hover,
+  .glow-card:hover {
+    box-shadow: var(--glow-shadow), inset 0 1px 0 hsl(210 40% 98% / 0.03), 0 20px 40px -24px hsl(224 71% 2% / 0.9);
+  }
+
+  .card-surface:hover::before,
+  .glow-card:hover::before,
+  .card-inner:hover::before,
+  .card-surface:hover::after,
+  .glow-card:hover::after,
+  .card-inner:hover::after {
+    opacity: 1;
+  }
+
+  /* Only the innermost hovered box glows: a card hands the glow to its inner box. */
+  .card-surface:has(.card-inner:hover)::before,
+  .card-surface:has(.card-inner:hover)::after,
+  .glow-card:has(.card-inner:hover)::before,
+  .glow-card:has(.card-inner:hover)::after {
+    opacity: 0;
+  }
+
+  .card-surface:has(.card-inner:hover),
+  .glow-card:has(.card-inner:hover) {
+    box-shadow: inset 0 1px 0 hsl(210 40% 98% / 0.03), 0 20px 40px -24px hsl(224 71% 2% / 0.9);
+  }
+
   .gradient-text {
     @apply bg-clip-text text-transparent;
     background-image: var(--gradient-text);
