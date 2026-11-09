@@ -175,7 +175,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
-  .animate-float-y, .animate-spin-slow, .star { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }  .animate-float-y, .animate-spin-slow, .star { animation: none; }
   html { scroll-behavior: auto; }
 }

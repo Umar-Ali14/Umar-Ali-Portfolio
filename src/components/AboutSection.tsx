@@ -51,7 +51,6 @@ const AboutSection = () => {
     <section id="about" className="section">
       <div className="container-wide">
         <SectionHeader
-          icon={Sparkles}
           eyebrow="Get to know me"
           title="About"
           highlight="Me"

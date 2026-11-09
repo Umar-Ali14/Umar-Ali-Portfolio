@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowUpRight, Github, Linkedin, Mail, MapPin, MessageCircle, Send, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Github, Linkedin, Mail, MapPin, Send, ShieldCheck, Sparkles } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { z } from 'zod';
@@ -63,7 +63,6 @@ const ContactSection = () => {
     <section id="contact" className="section">
       <div className="container-wide">
         <SectionHeader
-          icon={MessageCircle}
           eyebrow="Get in touch"
           title="Let's Build"
           highlight="Together"

@@ -1,4 +1,4 @@
-import { Calendar, Cloud, HeartHandshake, Route, Trophy, Users } from 'lucide-react';
+import { Calendar, Cloud, HeartHandshake, Trophy, Users } from 'lucide-react';
 import SectionHeader from './SectionHeader';
 import Reveal from './Reveal';
 import { journey } from '@/data/portfolio';
@@ -10,7 +10,6 @@ const ExperienceSection = () => {
     <section id="experience" className="section">
       <div className="container-wide">
         <SectionHeader
-          icon={Route}
           eyebrow="My journey"
           title="My"
           highlight="Journey"

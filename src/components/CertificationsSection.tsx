@@ -9,7 +9,6 @@ const CertificationsSection = () => {
     <section id="certifications" className="section">
       <div className="container-wide">
         <SectionHeader
-          icon={Award}
           eyebrow="Credentials"
           title="Certifications &"
           highlight="Courses"

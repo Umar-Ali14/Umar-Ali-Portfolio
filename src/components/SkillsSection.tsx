@@ -1,4 +1,4 @@
-import { Cloud, Cpu, GitBranch, Layers, Sparkles, Terminal } from 'lucide-react';
+import { Cloud, GitBranch, Layers, Sparkles, Terminal } from 'lucide-react';
 import SectionHeader from './SectionHeader';
 import Reveal from './Reveal';
 import { skillGroups } from '@/data/portfolio';
@@ -10,39 +10,44 @@ const SkillsSection = () => {
     <section id="skills" className="section">
       <div className="container-wide">
         <SectionHeader
-          icon={Cpu}
           eyebrow="My toolkit"
           title="The Stack Behind"
           highlight="My Work"
           subtitle="The AWS services, automation tools, and technologies I use to build secure, reliable, and cost-efficient cloud infrastructure."
         />
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-7 md:grid-cols-2">
           {skillGroups.map((group, gi) => {
             const Icon = groupIcons[gi % groupIcons.length];
             return (
-              <Reveal key={group.title} className="card-surface card-hover p-7" delay={(gi % 2) * 100}>
-                <div className="mb-6 flex items-start gap-4">
-                  <span className="icon-box h-12 w-12">
-                    <Icon className="h-5 w-5" />
+              <Reveal
+                key={group.title}
+                className="skill-card rounded-3xl border border-border/80 bg-card/60 p-8 backdrop-blur-sm transition-colors duration-300 hover:border-primary/40"
+                delay={(gi % 2) * 120}
+              >
+                {/* Card header */}
+                <div className="mb-7 flex items-start gap-5">
+                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-primary/25 bg-primary/10 text-primary shadow-[inset_0_0_18px_hsl(212_100%_56%/0.15)]">
+                    <Icon className="h-6 w-6" />
                   </span>
-                  <div>
-                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-primary">{group.title}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">{group.description}</p>
+                  <div className="pt-1">
+                    <h3 className="text-lg font-bold uppercase tracking-[0.28em] text-primary">{group.title}</h3>
+                    <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{group.description}</p>
                   </div>
                 </div>
 
-                <div className="flex flex-wrap gap-2.5">
+                {/* Skill chips */}
+                <ul className="flex flex-wrap gap-2.5">
                   {group.skills.map((skill) => (
-                    <span
+                    <li
                       key={skill}
-                      className="card-inner flex items-center gap-2 px-3.5 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/50"
+                      className="flex items-center gap-2 rounded-xl border border-border/80 bg-secondary/50 px-3.5 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/50 hover:bg-primary/10"
                     >
-                      <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_6px_hsl(212_100%_56%/0.8)]" />
                       {skill}
-                    </span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </Reveal>
             );
           })}

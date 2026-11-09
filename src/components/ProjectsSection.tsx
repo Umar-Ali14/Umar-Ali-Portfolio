@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Check, Cloud, ExternalLink, FolderKanban, GitBranch, Github, Globe, Layers, Maximize2, TrendingUp, Workflow } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Check, Cloud, ExternalLink, GitBranch, Github, Globe, Layers, Maximize2, TrendingUp, Workflow } from 'lucide-react';
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import SectionHeader from './SectionHeader';
 import Reveal from './Reveal';
@@ -30,7 +30,6 @@ const ProjectsSection = () => {
     <section id="projects" className="section">
       <div className="container-wide">
         <SectionHeader
-          icon={FolderKanban}
           eyebrow="My work"
           title="Selected"
           highlight="Projects"
