@@ -19,6 +19,8 @@ export const profile = {
   github: 'https://github.com/Umar-Ali14',
   linkedin: 'https://www.linkedin.com/in/umar-ali-043b13274/',
   linkedinCertifications: 'https://www.linkedin.com/in/umar-ali-043b13274/details/certifications/',
+  fiverr: 'https://www.fiverr.com/umarali_10',
+  upwork: 'https://www.upwork.com/freelancers/~011161bbdb5bf75446',
   resume: '/resume.pdf',
   siteRepo: 'https://github.com/Umar-Ali14/umar-cloud-folio',
 };

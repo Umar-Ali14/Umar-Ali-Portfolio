@@ -6,6 +6,7 @@ import { z } from 'zod';
 import SectionHeader from './SectionHeader';
 import Reveal from './Reveal';
 import { profile } from '@/data/portfolio';
+import { FiverrIcon, UpworkIcon } from './BrandIcons';
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, 'Name is required').max(100, 'Name must be less than 100 characters'),
@@ -57,6 +58,8 @@ const ContactSection = () => {
   const socials = [
     { label: 'GitHub', note: 'See my code', href: profile.github, icon: Github },
     { label: 'LinkedIn', note: "Let's connect", href: profile.linkedin, icon: Linkedin },
+    { label: 'Fiverr', note: 'Hire me for gigs', href: profile.fiverr, icon: FiverrIcon },
+    { label: 'Upwork', note: 'Work with me', href: profile.upwork, icon: UpworkIcon },
   ];
 
   return (
