@@ -1,4 +1,5 @@
-import { ArrowRight, ArrowUpRight, Check, Cloud, ExternalLink, FolderKanban, GitBranch, Github, Globe, Layers, TrendingUp } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Check, Cloud, ExternalLink, FolderKanban, GitBranch, Github, Globe, Layers, Maximize2, TrendingUp, Workflow } from 'lucide-react';
+import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import SectionHeader from './SectionHeader';
 import Reveal from './Reveal';
 import { profile, projects } from '@/data/portfolio';
@@ -109,7 +110,7 @@ const ProjectsSection = () => {
                     ))}
                   </div>
 
-                  <div className="mt-auto flex items-center gap-3 border-t border-border/70 pt-5">
+                  <div className="mt-auto flex flex-wrap items-center gap-3 border-t border-border/70 pt-5">
                     <a
                       href={codeHref}
                       target="_blank"
@@ -118,6 +119,37 @@ const ProjectsSection = () => {
                     >
                       <Github className="h-4 w-4" /> View Code <ArrowUpRight className="h-3.5 w-3.5 text-primary" />
                     </a>
+                    {project.architecture && (
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <button className="inline-flex items-center gap-2 rounded-lg border border-primary/40 bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/20">
+                            <Workflow className="h-4 w-4" /> View Architecture
+                          </button>
+                        </DialogTrigger>
+                        <DialogContent className="max-h-[92vh] w-[calc(100vw-1.5rem)] max-w-6xl overflow-y-auto border-border bg-card p-4 sm:p-6">
+                          <DialogTitle className="pr-8 text-base font-semibold text-foreground sm:text-lg">
+                            {project.title} — Architecture
+                          </DialogTitle>
+                          <DialogDescription className="sr-only">
+                            Architecture diagram for {project.title}
+                          </DialogDescription>
+                          <img
+                            src={project.architecture}
+                            alt={`${project.title} architecture diagram`}
+                            className="h-auto w-full rounded-lg bg-white"
+                            loading="lazy"
+                          />
+                          <a
+                            href={project.architecture}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 self-start text-sm font-medium text-primary hover:underline"
+                          >
+                            <Maximize2 className="h-3.5 w-3.5" /> Open full size
+                          </a>
+                        </DialogContent>
+                      </Dialog>
+                    )}
                     {project.demo && (
                       <a
                         href={project.demo}

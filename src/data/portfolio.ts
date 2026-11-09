@@ -4,6 +4,10 @@ import ibmCloudCertificate from '@/assets/certificates/ibm-cloud-certificate.jpg
 import adbiAiCertificate from '@/assets/certificates/adbi-ai-social-impact-certificate.jpg';
 import hpAiCertificate from '@/assets/certificates/hp-ai-business-certificate.jpg';
 import awsZeroToHeroCertificate from '@/assets/certificates/aws-zero-to-hero-certificate.png';
+import multiEnvArchitecture from '@/assets/architecture/multi-environment-infrastructure.svg';
+import cicdArchitecture from '@/assets/architecture/cicd-pipeline.webp';
+import costOptimizerArchitecture from '@/assets/architecture/aws-cost-optimizer.webp';
+import staticSiteArchitecture from '@/assets/architecture/static-website-cdn.svg';
 
 export const profile = {
   name: 'Umar Ali',
@@ -119,6 +123,7 @@ export type Project = {
   demo?: string;
   status?: 'In Progress';
   impact?: string; // shown under the highlights as "Business Impact"
+  architecture?: string; // diagram opened by the "View Architecture" button
 };
 
 export const projects: Project[] = [
@@ -137,6 +142,7 @@ export const projects: Project[] = [
     tags: ['Terraform', 'VPC', 'EC2', 'Security Groups'],
     flow: ['Dev', 'Staging', 'Production'],
     repo: 'https://github.com/Umar-Ali14/multi-environment-aws-infrastructure',
+    architecture: multiEnvArchitecture,
     status: 'In Progress',
   },
   {
@@ -153,6 +159,7 @@ export const projects: Project[] = [
     tags: ['GitHub Actions', 'IAM OIDC', 'S3'],
     flow: ['git push', 'OIDC Role', 'S3'],
     repo: 'https://github.com/Umar-Ali14/cicd-cloud-project',
+    architecture: cicdArchitecture,
   },
   {
     category: 'Serverless',
@@ -169,6 +176,7 @@ export const projects: Project[] = [
     tags: ['Lambda', 'CloudWatch', 'EC2', 'S3', 'Python'],
     flow: ['CloudWatch', 'Lambda', 'S3 Log'],
     repo: 'https://github.com/Umar-Ali14/aws-cost-optimizer-system',
+    architecture: costOptimizerArchitecture,
   },
   {
     category: 'Content Delivery',
@@ -184,6 +192,7 @@ export const projects: Project[] = [
     tags: ['S3', 'CloudFront', 'Route 53'],
     flow: ['Route 53', 'CloudFront', 'S3'],
     repo: 'https://github.com/Umar-Ali14/s3-cloudfront-static-website',
+    architecture: staticSiteArchitecture,
   },
 ];
 

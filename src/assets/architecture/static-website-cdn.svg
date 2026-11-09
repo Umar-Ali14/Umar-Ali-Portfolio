@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1024" width="1536" height="1024" font-family="Segoe UI, Inter, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+  </defs>
+  <rect width="1536" height="1024" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="768" y="62" text-anchor="middle" font-size="38" font-weight="700" fill="#111">Static Website with Global CDN – Architecture</text>
+  <text x="768" y="102" text-anchor="middle" font-size="22" fill="#333">Amazon S3 origin served worldwide through CloudFront on a custom Route 53 domain</text>
+
+  <!-- 1. Visitor -->
+  <rect x="40" y="140" width="300" height="430" rx="14" fill="#fff" stroke="#1a73e8" stroke-width="2"/>
+  <text x="190" y="180" text-anchor="middle" font-size="22" font-weight="700" fill="#1a73e8">1. Visitor</text>
+  <g transform="translate(140 200)">
+    <rect width="100" height="70" rx="6" fill="none" stroke="#333" stroke-width="4"/>
+    <rect x="10" y="10" width="80" height="12" fill="#cfd8dc"/>
+    <rect x="10" y="28" width="38" height="32" fill="#90caf9"/>
+    <path d="M56 32h34M56 42h34M56 52h24" stroke="#90a4ae" stroke-width="4"/>
+    <path d="M38 70 L32 88 H68 L62 70" fill="#333"/>
+  </g>
+  <text x="190" y="318" text-anchor="middle" font-size="18" fill="#222">Web Browser</text>
+  <line x1="60" y1="340" x2="320" y2="340" stroke="#ccc" stroke-dasharray="5 4"/>
+  <g font-size="16" fill="#333">
+    <text x="64" y="378">• Opens the custom domain</text>
+    <text x="64" y="410">• Any http:// request is</text>
+    <text x="80" y="432">redirected to https://</text>
+    <text x="64" y="464">• Receives content from the</text>
+    <text x="80" y="486">nearest edge location</text>
+  </g>
+
+  <!-- arrow 1 -> 2 -->
+  <text x="385" y="262" text-anchor="middle" font-size="16" fill="#222">DNS</text>
+  <text x="385" y="282" text-anchor="middle" font-size="16" fill="#222">lookup</text>
+  <line x1="342" y1="298" x2="426" y2="298" stroke="#222" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- 2. Route 53 -->
+  <rect x="430" y="140" width="300" height="430" rx="14" fill="#fff" stroke="#7b42bc" stroke-width="2"/>
+  <text x="580" y="180" text-anchor="middle" font-size="22" font-weight="700" fill="#7b42bc">2. Amazon Route 53</text>
+  <g transform="translate(540 198)">
+    <rect width="80" height="80" rx="10" fill="#7b42bc"/>
+    <path d="M40 14 L64 26 V44 C64 58 54 66 40 70 C26 66 16 58 16 44 V26 Z" fill="none" stroke="#fff" stroke-width="4"/>
+    <text x="40" y="52" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">53</text>
+  </g>
+  <text x="580" y="318" text-anchor="middle" font-size="18" fill="#222">DNS</text>
+  <line x1="450" y1="340" x2="710" y2="340" stroke="#ccc" stroke-dasharray="5 4"/>
+  <g font-size="16" fill="#333">
+    <text x="454" y="378">• Hosted zone for the</text>
+    <text x="470" y="400">custom domain</text>
+    <text x="454" y="432">• Alias record pointing to</text>
+    <text x="470" y="454">the CloudFront distribution</text>
+  </g>
+
+  <!-- arrow 2 -> 3 -->
+  <text x="775" y="262" text-anchor="middle" font-size="16" fill="#222">HTTPS</text>
+  <text x="775" y="282" text-anchor="middle" font-size="16" fill="#222">request</text>
+  <line x1="732" y1="298" x2="816" y2="298" stroke="#222" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- 3. CloudFront -->
+  <rect x="820" y="140" width="300" height="430" rx="14" fill="#fff" stroke="#8c4fff" stroke-width="2"/>
+  <text x="970" y="180" text-anchor="middle" font-size="22" font-weight="700" fill="#8c4fff">3. Amazon CloudFront</text>
+  <g transform="translate(930 198)">
+    <rect width="80" height="80" rx="10" fill="#8c4fff"/>
+    <circle cx="40" cy="40" r="24" fill="none" stroke="#fff" stroke-width="4"/>
+    <ellipse cx="40" cy="40" rx="10" ry="24" fill="none" stroke="#fff" stroke-width="3"/>
+    <path d="M16 40h48M20 28h40M20 52h40" stroke="#fff" stroke-width="3"/>
+  </g>
+  <text x="970" y="318" text-anchor="middle" font-size="18" fill="#222">Global CDN</text>
+  <line x1="840" y1="340" x2="1100" y2="340" stroke="#ccc" stroke-dasharray="5 4"/>
+  <g font-size="16" fill="#333">
+    <text x="844" y="378">• HTTP → HTTPS redirect</text>
+    <text x="844" y="410">• TLS certificate (ACM)</text>
+    <text x="844" y="442">• Caches content at edge</text>
+    <text x="860" y="464">locations worldwide</text>
+  </g>
+  <rect x="844" y="490" width="252" height="54" rx="8" fill="#f3ecff" stroke="#c9b3ff"/>
+  <text x="970" y="512" text-anchor="middle" font-size="14" font-weight="700" fill="#6b3fd0">Cache hit → served from edge</text>
+  <text x="970" y="532" text-anchor="middle" font-size="14" fill="#555">Cache miss → fetched from S3</text>
+
+  <!-- arrow 3 -> 4 -->
+  <text x="1165" y="262" text-anchor="middle" font-size="16" fill="#222">Origin</text>
+  <text x="1165" y="282" text-anchor="middle" font-size="16" fill="#222">fetch</text>
+  <line x1="1122" y1="298" x2="1206" y2="298" stroke="#222" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- 4. S3 -->
+  <rect x="1210" y="140" width="286" height="430" rx="14" fill="#fff" stroke="#3f8624" stroke-width="2"/>
+  <text x="1353" y="180" text-anchor="middle" font-size="22" font-weight="700" fill="#3f8624">4. Amazon S3</text>
+  <g transform="translate(1313 198)">
+    <rect width="80" height="80" rx="10" fill="#3f8624"/>
+    <path d="M18 24 H62 L56 64 C56 68 24 68 24 64 Z" fill="none" stroke="#fff" stroke-width="4"/>
+    <ellipse cx="40" cy="24" rx="22" ry="6" fill="none" stroke="#fff" stroke-width="4"/>
+  </g>
+  <text x="1353" y="318" text-anchor="middle" font-size="18" fill="#222">Origin Bucket</text>
+  <line x1="1230" y1="340" x2="1476" y2="340" stroke="#ccc" stroke-dasharray="5 4"/>
+  <g font-size="16" fill="#333">
+    <text x="1234" y="378">• Stores index.html,</text>
+    <text x="1250" y="400">CSS, JS and images</text>
+    <text x="1234" y="432">• Acts as the origin for</text>
+    <text x="1250" y="454">the CloudFront distribution</text>
+  </g>
+
+  <!-- return path -->
+  <path d="M1353 572 V610 H190 V574" fill="none" stroke="#222" stroke-width="2" stroke-dasharray="8 6" marker-end="url(#arr)"/>
+  <rect x="560" y="592" width="416" height="38" rx="10" fill="#fff" stroke="#222" stroke-dasharray="6 4"/>
+  <text x="768" y="617" text-anchor="middle" font-size="17" fill="#222">Response delivered over HTTPS from the edge</text>
+
+  <!-- Request flow summary -->
+  <text x="50" y="686" font-size="24" font-weight="700" fill="#1a73e8">Request Flow Summary</text>
+  <rect x="40" y="704" width="1456" height="130" rx="14" fill="#fff" stroke="#d9d9d9"/>
+  <g font-size="15" fill="#333">
+    <circle cx="78" cy="742" r="15" fill="#1a73e8"/><text x="78" y="748" text-anchor="middle" fill="#fff" font-weight="700">1</text>
+    <text x="104" y="748" font-size="18" font-weight="700" fill="#1a73e8">Visitor</text>
+    <text x="64" y="784">Browser requests the site on</text>
+    <text x="64" y="806">its custom domain.</text>
+
+    <line x1="402" y1="720" x2="402" y2="818" stroke="#e3e3e3"/>
+    <circle cx="440" cy="742" r="15" fill="#7b42bc"/><text x="440" y="748" text-anchor="middle" fill="#fff" font-weight="700">2</text>
+    <text x="466" y="748" font-size="18" font-weight="700" fill="#7b42bc">Route 53</text>
+    <text x="426" y="784">Resolves the domain to the</text>
+    <text x="426" y="806">CloudFront distribution.</text>
+
+    <line x1="764" y1="720" x2="764" y2="818" stroke="#e3e3e3"/>
+    <circle cx="802" cy="742" r="15" fill="#8c4fff"/><text x="802" y="748" text-anchor="middle" fill="#fff" font-weight="700">3</text>
+    <text x="828" y="748" font-size="18" font-weight="700" fill="#8c4fff">CloudFront</text>
+    <text x="788" y="784">Enforces HTTPS and serves</text>
+    <text x="788" y="806">cached content from the edge.</text>
+
+    <line x1="1126" y1="720" x2="1126" y2="818" stroke="#e3e3e3"/>
+    <circle cx="1164" cy="742" r="15" fill="#3f8624"/><text x="1164" y="748" text-anchor="middle" fill="#fff" font-weight="700">4</text>
+    <text x="1190" y="748" font-size="18" font-weight="700" fill="#3f8624">Amazon S3</text>
+    <text x="1150" y="784">Supplies files to CloudFront</text>
+    <text x="1150" y="806">when they aren't cached yet.</text>
+  </g>
+
+  <!-- Key features -->
+  <text x="768" y="886" text-anchor="middle" font-size="22" font-weight="700" fill="#1a73e8">Key Features</text>
+  <rect x="40" y="904" width="1456" height="84" rx="14" fill="#fff" stroke="#d9d9d9"/>
+  <g font-size="17" fill="#222">
+    <text x="80" y="953">✓ Global content delivery</text>
+    <line x1="350" y1="922" x2="350" y2="970" stroke="#e3e3e3"/>
+    <text x="380" y="953">✓ HTTPS enforced</text>
+    <line x1="590" y1="922" x2="590" y2="970" stroke="#e3e3e3"/>
+    <text x="620" y="953">✓ Edge caching</text>
+    <line x1="808" y1="922" x2="808" y2="970" stroke="#e3e3e3"/>
+    <text x="838" y="953">✓ Custom domain (Route 53)</text>
+    <line x1="1120" y1="922" x2="1120" y2="970" stroke="#e3e3e3"/>
+    <text x="1150" y="953">✓ Torn down after testing to</text>
+    <text x="1174" y="975" font-size="15" fill="#555">avoid AWS charges</text>
+  </g>
+</svg>

@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1024" width="1536" height="1024" font-family="Segoe UI, Inter, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+  </defs>
+  <rect width="1536" height="1024" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="768" y="62" text-anchor="middle" font-size="38" font-weight="700" fill="#111">Multi-Environment AWS Infrastructure – Terraform Architecture</text>
+  <text x="768" y="102" text-anchor="middle" font-size="22" fill="#333">Reusable Terraform modules deploying isolated Development, Staging and Production environments</text>
+
+  <!-- 1. Terraform modules -->
+  <rect x="40" y="140" width="330" height="470" rx="14" fill="#faf7ff" stroke="#7b42bc" stroke-width="2"/>
+  <text x="205" y="180" text-anchor="middle" font-size="22" font-weight="700" fill="#7b42bc">1. Terraform Modules</text>
+  <g transform="translate(170 198)">
+    <rect width="70" height="70" rx="12" fill="#7b42bc"/>
+    <path d="M14 14 L32 24 L32 44 L14 34 Z M36 26 L54 16 L54 36 L36 46 Z M36 50 L54 40 L54 60 L36 70 Z" fill="#fff" transform="translate(0 -6) scale(1)"/>
+  </g>
+  <g font-size="15" fill="#333">
+    <rect x="60" y="292" width="290" height="92" rx="10" fill="#fff" stroke="#d6c7ec"/>
+    <text x="78" y="322" font-size="17" font-weight="700" fill="#7b42bc" font-family="Consolas, Menlo, monospace">modules/network</text>
+    <text x="78" y="348">VPC · Public &amp; private subnets</text>
+    <text x="78" y="370">Internet Gateway · Route tables</text>
+
+    <rect x="60" y="396" width="290" height="92" rx="10" fill="#fff" stroke="#d6c7ec"/>
+    <text x="78" y="426" font-size="17" font-weight="700" fill="#7b42bc" font-family="Consolas, Menlo, monospace">modules/security</text>
+    <text x="78" y="452">Tiered security groups</text>
+    <text x="78" y="474">(frontend / backend rules)</text>
+
+    <rect x="60" y="500" width="290" height="92" rx="10" fill="#fff" stroke="#d6c7ec"/>
+    <text x="78" y="530" font-size="17" font-weight="700" fill="#7b42bc" font-family="Consolas, Menlo, monospace">modules/compute</text>
+    <text x="78" y="556">EC2 · Amazon Linux 2023</text>
+    <text x="78" y="578">IMDSv2 · Encrypted gp3</text>
+  </g>
+
+  <!-- arrow 1 -> 2 -->
+  <text x="402" y="352" text-anchor="middle" font-size="16" fill="#222">Reused</text>
+  <text x="402" y="372" text-anchor="middle" font-size="16" fill="#222">by</text>
+  <line x1="372" y1="388" x2="430" y2="388" stroke="#222" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- 2. Environments -->
+  <rect x="435" y="140" width="300" height="470" rx="14" fill="#f5f9ff" stroke="#1a73e8" stroke-width="2"/>
+  <text x="585" y="180" text-anchor="middle" font-size="22" font-weight="700" fill="#1a73e8">2. Environments</text>
+  <g font-size="15" fill="#333">
+    <rect x="455" y="202" width="260" height="122" rx="10" fill="#fff" stroke="#c9dcf7"/>
+    <rect x="455" y="202" width="7" height="122" rx="3" fill="#2e7d32"/>
+    <text x="478" y="232" font-size="19" font-weight="700" fill="#2e7d32">Development</text>
+    <text x="478" y="258">• Own VPC</text>
+    <text x="478" y="280">• Own variables (.tfvars)</text>
+    <text x="478" y="302">• Own Terraform state</text>
+
+    <rect x="455" y="336" width="260" height="122" rx="10" fill="#fff" stroke="#c9dcf7"/>
+    <rect x="455" y="336" width="7" height="122" rx="3" fill="#e8a10a"/>
+    <text x="478" y="366" font-size="19" font-weight="700" fill="#b77a00">Staging</text>
+    <text x="478" y="392">• Own VPC</text>
+    <text x="478" y="414">• Own variables (.tfvars)</text>
+    <text x="478" y="436">• Own Terraform state</text>
+
+    <rect x="455" y="470" width="260" height="122" rx="10" fill="#fff" stroke="#c9dcf7"/>
+    <rect x="455" y="470" width="7" height="122" rx="3" fill="#c62828"/>
+    <text x="478" y="500" font-size="19" font-weight="700" fill="#c62828">Production</text>
+    <text x="478" y="526">• Own VPC</text>
+    <text x="478" y="548">• Own variables (.tfvars)</text>
+    <text x="478" y="570">• Own Terraform state</text>
+  </g>
+
+  <!-- arrow 2 -> 3 -->
+  <text x="767" y="352" text-anchor="middle" font-size="16" fill="#222">Each</text>
+  <text x="767" y="372" text-anchor="middle" font-size="16" fill="#222">deploys</text>
+  <line x1="737" y1="388" x2="795" y2="388" stroke="#222" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- 3. Per-environment VPC -->
+  <rect x="800" y="140" width="696" height="470" rx="14" fill="#f7fbf4" stroke="#3f8624" stroke-width="2"/>
+  <text x="1148" y="180" text-anchor="middle" font-size="22" font-weight="700" fill="#3f8624">3. Per-Environment Network &amp; Compute</text>
+
+  <!-- internet / igw / route table -->
+  <rect x="826" y="200" width="130" height="44" rx="22" fill="#fff" stroke="#999"/>
+  <text x="891" y="228" text-anchor="middle" font-size="16" font-weight="600" fill="#333">Internet</text>
+  <line x1="958" y1="222" x2="1004" y2="222" stroke="#222" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="1008" y="200" width="190" height="44" rx="10" fill="#fff" stroke="#3f8624"/>
+  <text x="1103" y="228" text-anchor="middle" font-size="16" font-weight="600" fill="#3f8624">Internet Gateway</text>
+  <rect x="1222" y="200" width="250" height="44" rx="10" fill="#fff" stroke="#3f8624" stroke-dasharray="5 4"/>
+  <text x="1347" y="228" text-anchor="middle" font-size="15" fill="#333">Route tables (public → IGW)</text>
+
+  <!-- VPC boundary -->
+  <rect x="820" y="262" width="656" height="330" rx="12" fill="none" stroke="#3f8624" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="838" y="286" font-size="15" font-weight="700" fill="#3f8624">VPC</text>
+  <line x1="1060" y1="246" x2="1000" y2="306" stroke="#222" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- public subnet -->
+  <rect x="840" y="306" width="300" height="270" rx="10" fill="#e8f5e9" stroke="#8bc34a"/>
+  <text x="990" y="334" text-anchor="middle" font-size="17" font-weight="700" fill="#2e7d32">Public Subnet</text>
+  <g transform="translate(958 348)">
+    <rect width="64" height="64" rx="8" fill="none" stroke="#e8710a" stroke-width="3"/>
+    <rect x="16" y="16" width="32" height="32" rx="3" fill="none" stroke="#e8710a" stroke-width="3"/>
+    <path d="M24 0v10M32 0v10M40 0v10M24 54v10M32 54v10M40 54v10M0 24h10M0 32h10M0 40h10M54 24h10M54 32h10M54 40h10" stroke="#e8710a" stroke-width="3"/>
+  </g>
+  <text x="990" y="440" text-anchor="middle" font-size="17" font-weight="700" fill="#222">Frontend EC2</text>
+  <text x="990" y="462" text-anchor="middle" font-size="14" fill="#555">Amazon Linux 2023</text>
+  <rect x="858" y="480" width="264" height="74" rx="8" fill="#fff" stroke="#c7254e"/>
+  <text x="990" y="508" text-anchor="middle" font-size="14" font-weight="700" fill="#c7254e">Security Group</text>
+  <text x="990" y="532" text-anchor="middle" font-size="14" fill="#333">Inbound: HTTP 80 / HTTPS 443 only</text>
+
+  <!-- frontend -> backend -->
+  <line x1="1142" y1="420" x2="1166" y2="420" stroke="#222" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- private subnet -->
+  <rect x="1170" y="306" width="290" height="270" rx="10" fill="#e3f2fd" stroke="#64b5f6"/>
+  <text x="1315" y="334" text-anchor="middle" font-size="17" font-weight="700" fill="#1565c0">Private Subnet</text>
+  <g transform="translate(1283 348)">
+    <rect width="64" height="64" rx="8" fill="none" stroke="#e8710a" stroke-width="3"/>
+    <rect x="16" y="16" width="32" height="32" rx="3" fill="none" stroke="#e8710a" stroke-width="3"/>
+    <path d="M24 0v10M32 0v10M40 0v10M24 54v10M32 54v10M40 54v10M0 24h10M0 32h10M0 40h10M54 24h10M54 32h10M54 40h10" stroke="#e8710a" stroke-width="3"/>
+  </g>
+  <text x="1315" y="440" text-anchor="middle" font-size="17" font-weight="700" fill="#222">Backend EC2</text>
+  <text x="1315" y="462" text-anchor="middle" font-size="14" fill="#555">Amazon Linux 2023</text>
+  <rect x="1186" y="480" width="258" height="74" rx="8" fill="#fff" stroke="#c7254e"/>
+  <text x="1315" y="508" text-anchor="middle" font-size="14" font-weight="700" fill="#c7254e">Security Group</text>
+  <text x="1315" y="532" text-anchor="middle" font-size="14" fill="#333">Inbound: from Frontend SG only</text>
+
+  <!-- Key design decisions -->
+  <text x="50" y="664" font-size="24" font-weight="700" fill="#1a73e8">Key Design Decisions</text>
+  <rect x="40" y="684" width="1456" height="158" rx="14" fill="#fff" stroke="#d9d9d9"/>
+  <g font-size="15" fill="#333">
+    <circle cx="78" cy="722" r="15" fill="#7b42bc"/><text x="78" y="728" text-anchor="middle" fill="#fff" font-weight="700">1</text>
+    <text x="104" y="728" font-size="18" font-weight="700" fill="#7b42bc">Reusable Modules</text>
+    <text x="64" y="764">Network, security and compute</text>
+    <text x="64" y="786">modules shared by every</text>
+    <text x="64" y="808">environment.</text>
+
+    <line x1="330" y1="700" x2="330" y2="826" stroke="#e3e3e3"/>
+    <circle cx="368" cy="722" r="15" fill="#1a73e8"/><text x="368" y="728" text-anchor="middle" fill="#fff" font-weight="700">2</text>
+    <text x="394" y="728" font-size="18" font-weight="700" fill="#1a73e8">Isolated Environments</text>
+    <text x="354" y="764">Separate VPC, variables and</text>
+    <text x="354" y="786">state for Dev, Staging and</text>
+    <text x="354" y="808">Production.</text>
+
+    <line x1="620" y1="700" x2="620" y2="826" stroke="#e3e3e3"/>
+    <circle cx="658" cy="722" r="15" fill="#c7254e"/><text x="658" y="728" text-anchor="middle" fill="#fff" font-weight="700">3</text>
+    <text x="684" y="728" font-size="18" font-weight="700" fill="#c7254e">Least-Privilege Access</text>
+    <text x="644" y="764">Backend reachable only from the</text>
+    <text x="644" y="786">frontend SG. No SSH; shell access</text>
+    <text x="644" y="808">via AWS Systems Manager.</text>
+
+    <line x1="910" y1="700" x2="910" y2="826" stroke="#e3e3e3"/>
+    <circle cx="948" cy="722" r="15" fill="#e8710a"/><text x="948" y="728" text-anchor="middle" fill="#fff" font-weight="700">4</text>
+    <text x="974" y="728" font-size="18" font-weight="700" fill="#e8710a">Hardened Compute</text>
+    <text x="934" y="764">IMDSv2 enforced, encrypted gp3</text>
+    <text x="934" y="786">volumes, instance types set</text>
+    <text x="934" y="808">per environment.</text>
+
+    <line x1="1200" y1="700" x2="1200" y2="826" stroke="#e3e3e3"/>
+    <circle cx="1238" cy="722" r="15" fill="#3f8624"/><text x="1238" y="728" text-anchor="middle" fill="#fff" font-weight="700">5</text>
+    <text x="1264" y="728" font-size="18" font-weight="700" fill="#3f8624">Cost &amp; Governance</text>
+    <text x="1224" y="764">No NAT Gateway to keep costs</text>
+    <text x="1224" y="786">low. All resources tagged,</text>
+    <text x="1224" y="808">provider versions pinned.</text>
+  </g>
+
+  <!-- Deployment workflow -->
+  <text x="768" y="900" text-anchor="middle" font-size="22" font-weight="700" fill="#1a73e8">Deployment Workflow (per environment)</text>
+  <g font-size="16" font-weight="600" text-anchor="middle">
+    <rect x="132" y="924" width="220" height="56" rx="10" fill="#faf7ff" stroke="#7b42bc"/>
+    <text x="242" y="958" fill="#7b42bc">Write / update modules</text>
+    <line x1="356" y1="952" x2="402" y2="952" stroke="#222" stroke-width="2" marker-end="url(#arr)"/>
+    <rect x="406" y="924" width="220" height="56" rx="10" fill="#f5f9ff" stroke="#1a73e8"/>
+    <text x="516" y="958" fill="#1a73e8">Set env .tfvars</text>
+    <line x1="630" y1="952" x2="676" y2="952" stroke="#222" stroke-width="2" marker-end="url(#arr)"/>
+    <rect x="680" y="924" width="176" height="56" rx="10" fill="#fff" stroke="#555"/>
+    <text x="768" y="958" fill="#333" font-family="Consolas, Menlo, monospace">terraform plan</text>
+    <line x1="860" y1="952" x2="906" y2="952" stroke="#222" stroke-width="2" marker-end="url(#arr)"/>
+    <rect x="910" y="924" width="190" height="56" rx="10" fill="#fff" stroke="#555"/>
+    <text x="1005" y="958" fill="#333" font-family="Consolas, Menlo, monospace">terraform apply</text>
+    <line x1="1104" y1="952" x2="1150" y2="952" stroke="#222" stroke-width="2" marker-end="url(#arr)"/>
+    <rect x="1154" y="924" width="250" height="56" rx="10" fill="#f7fbf4" stroke="#3f8624"/>
+    <text x="1279" y="958" fill="#3f8624">Isolated environment ready</text>
+  </g>
+</svg>
