@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Check, Cloud, ExternalLink, FolderKanban, GitBranch, Github, Globe, Layers } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Check, Cloud, ExternalLink, FolderKanban, GitBranch, Github, Globe, Layers, TrendingUp } from 'lucide-react';
 import SectionHeader from './SectionHeader';
 import Reveal from './Reveal';
 import { profile, projects } from '@/data/portfolio';
@@ -91,6 +91,15 @@ const ProjectsSection = () => {
                       </li>
                     ))}
                   </ul>
+
+                  {project.impact && (
+                    <div className="mt-5 rounded-r-lg border-l-2 border-emerald-400/70 bg-emerald-400/[0.06] py-3 pl-4 pr-3">
+                      <p className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-400">
+                        <TrendingUp className="h-3.5 w-3.5" /> Business Impact
+                      </p>
+                      <p className="mt-1.5 text-sm leading-relaxed text-foreground/85">{project.impact}</p>
+                    </div>
+                  )}
 
                   <div className="mb-6 mt-5 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (

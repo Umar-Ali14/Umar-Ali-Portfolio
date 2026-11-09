@@ -118,6 +118,7 @@ export type Project = {
   repo?: string;
   demo?: string;
   status?: 'In Progress';
+  impact?: string; // shown under the highlights as "Business Impact"
 };
 
 export const projects: Project[] = [
@@ -131,6 +132,8 @@ export const projects: Project[] = [
       'Backend reachable only from the frontend security group; no SSH, shell access via Systems Manager',
       'Amazon Linux 2023 with IMDSv2 enforced, encrypted gp3 volumes, tagged resources, pinned providers',
     ],
+    impact:
+      'Promotes consistent infrastructure across environments, reduces configuration drift, and simplifies infrastructure management.',
     tags: ['Terraform', 'VPC', 'EC2', 'Security Groups'],
     flow: ['Dev', 'Staging', 'Production'],
     repo: 'https://github.com/Umar-Ali14/multi-environment-aws-infrastructure',
@@ -145,6 +148,8 @@ export const projects: Project[] = [
       'Uses IAM OIDC federation instead of stored access keys',
       'Workflow assumes a scoped IAM role with short-lived credentials',
     ],
+    impact:
+      'Reduces manual deployment effort, minimizes human errors, and enables faster, repeatable website updates.',
     tags: ['GitHub Actions', 'IAM OIDC', 'S3'],
     flow: ['git push', 'OIDC Role', 'S3'],
     repo: 'https://github.com/Umar-Ali14/cicd-cloud-project',
@@ -159,6 +164,8 @@ export const projects: Project[] = [
       'Every result saved as a timestamped JSON file in S3 to keep a decision history',
       'Tested with simulated CPU events',
     ],
+    impact:
+      'Improves visibility into EC2 utilization, helping teams identify potentially wasted resources and make informed cost-management decisions.',
     tags: ['Lambda', 'CloudWatch', 'EC2', 'S3', 'Python'],
     flow: ['CloudWatch', 'Lambda', 'S3 Log'],
     repo: 'https://github.com/Umar-Ali14/aws-cost-optimizer-system',
@@ -172,6 +179,8 @@ export const projects: Project[] = [
       'Taken down after testing to avoid AWS charges',
       'Screenshots and demo videos are in the repo',
     ],
+    impact:
+      'Enables reliable global content delivery through CloudFront, with HTTPS and caching to improve website accessibility and performance.',
     tags: ['S3', 'CloudFront', 'Route 53'],
     flow: ['Route 53', 'CloudFront', 'S3'],
     repo: 'https://github.com/Umar-Ali14/s3-cloudfront-static-website',
