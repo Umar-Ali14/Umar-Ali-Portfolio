@@ -271,7 +271,40 @@
   animation-delay: var(--delay, 0s);
 }
 
+/* Background: thin light streams travelling along grid rows / columns */
+@keyframes stream-h {
+  from { transform: translateX(-12rem); }
+  to { transform: translateX(110vw); }
+}
+
+@keyframes stream-v {
+  from { transform: translateY(-12rem); }
+  to { transform: translateY(110vh); }
+}
+
+.bg-stream-h,
+.bg-stream-v {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0.75;
+  filter: drop-shadow(0 0 4px hsl(200 100% 60% / 0.8));
+  will-change: transform;
+}
+
+.bg-stream-h {
+  animation-name: stream-h;
+  background: linear-gradient(90deg, transparent, hsl(200 100% 65% / 0.9), transparent);
+}
+
+.bg-stream-v {
+  animation-name: stream-v;
+  background: linear-gradient(180deg, transparent, hsl(200 100% 65% / 0.9), transparent);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }  .animate-float-y, .animate-spin-slow, .star { animation: none; }
+  .bg-stream-h, .bg-stream-v { animation: none; }
+  .bg-stream-h, .bg-stream-v { opacity: 0; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .animate-float-y, .animate-spin-slow, .star { animation: none; }
   html { scroll-behavior: auto; }
 }

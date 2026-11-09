@@ -1,6 +1,12 @@
 import { useMemo } from 'react';
 
-/** Fixed, subtle starfield + grid behind the whole page. */
+const GRID = 64; // px, matches the faint grid's backgroundSize
+const FADE_MASK = 'radial-gradient(ellipse at center, black 30%, transparent 75%)';
+
+/**
+ * Fixed, subtle backdrop behind the whole page: glows, faint grid,
+ * twinkling stars and thin light streams gliding along the grid lines.
+ */
 const SpaceBackground = () => {
   const stars = useMemo(
     () =>
@@ -15,6 +21,19 @@ const SpaceBackground = () => {
     [],
   );
 
+  // Light streams snapped to grid rows / columns.
+  const hStreams = [
+    { row: 3, duration: 9, delay: 0 },
+    { row: 7, duration: 12, delay: -4 },
+    { row: 11, duration: 10, delay: -7 },
+    { row: 15, duration: 14, delay: -2 },
+  ];
+  const vStreams = [
+    { col: 4, duration: 11, delay: -3 },
+    { col: 13, duration: 13, delay: -8 },
+    { col: 21, duration: 10, delay: -5 },
+  ];
+
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
       {/* soft radial glows */}
@@ -27,11 +46,29 @@ const SpaceBackground = () => {
         style={{
           backgroundImage:
             'linear-gradient(hsl(212 100% 70%) 1px, transparent 1px), linear-gradient(90deg, hsl(212 100% 70%) 1px, transparent 1px)',
-          backgroundSize: '64px 64px',
-          maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 75%)',
-          WebkitMaskImage: 'radial-gradient(ellipse at center, black 30%, transparent 75%)',
+          backgroundSize: `${GRID}px ${GRID}px`,
+          maskImage: FADE_MASK,
+          WebkitMaskImage: FADE_MASK,
         }}
       />
+
+      {/* light streams gliding along grid lines (same edge fade as the grid) */}
+      <div className="absolute inset-0" style={{ maskImage: FADE_MASK, WebkitMaskImage: FADE_MASK }}>
+        {hStreams.map((s) => (
+          <span
+            key={`h${s.row}`}
+            className="bg-stream-h absolute left-0 h-px w-56"
+            style={{ top: s.row * GRID, animationDuration: `${s.duration}s`, animationDelay: `${s.delay}s` }}
+          />
+        ))}
+        {vStreams.map((s) => (
+          <span
+            key={`v${s.col}`}
+            className="bg-stream-v absolute top-0 h-56 w-px"
+            style={{ left: s.col * GRID, animationDuration: `${s.duration}s`, animationDelay: `${s.delay}s` }}
+          />
+        ))}
+      </div>
 
       {stars.map((s) => (
         <span

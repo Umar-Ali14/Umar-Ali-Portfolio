@@ -1,11 +1,14 @@
 import { ArrowDown, ArrowUpRight, Cloud, Download, GitBranch, Server, ShieldCheck } from 'lucide-react';
 import profilePhoto from '@/assets/profile-photo.webp';
 import { heroStack, profile } from '@/data/portfolio';
+import HeroParticles from './HeroParticles';
 
 const HeroSection = () => {
   return (
     <section id="home" className="relative flex min-h-screen items-center px-4 pb-16 pt-24 md:px-8">
-      <div className="container-wide grid w-full items-center gap-10 lg:gap-12 lg:grid-cols-[1.3fr_1fr]">
+      <HeroParticles />
+
+      <div className="container-wide relative grid w-full items-center gap-10 lg:gap-12 lg:grid-cols-[1.3fr_1fr]">
         {/* Text */}
         <div className="order-2 lg:order-1">
           <span className="reveal is-visible inline-flex items-center gap-2 rounded-full border border-border bg-secondary/50 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.15em] text-primary">
