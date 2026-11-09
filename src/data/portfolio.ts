@@ -196,7 +196,17 @@ export const projects: Project[] = [
   },
 ];
 
-export const journey = [
+export type JourneyEntry = {
+  label: string;
+  period: string;
+  title: string;
+  org: string;
+  description: string;
+  achievements?: string[]; // highlighted as gold badges on the card
+  tags: string[];
+};
+
+export const journey: JourneyEntry[] = [
   {
     label: 'Projects',
     period: '2025 — Present',
@@ -204,6 +214,7 @@ export const journey = [
     org: 'Independent',
     description:
       'Building AWS projects end to end: Terraform environments, OIDC-based CI/CD, serverless cost monitoring and CDN hosting, plus 10+ hands-on AWS labs.',
+    achievements: ['10+ AWS Labs'],
     tags: ['AWS', 'Terraform', 'GitHub Actions'],
   },
   {
@@ -213,6 +224,7 @@ export const journey = [
     org: 'AWS Student Builder Group, University of the Punjab',
     description:
       'Spreading awareness of AWS among IBIT students and helping with registrations for AWS Student Community Day Lahore 2026.',
+    achievements: ['AWS Student Community'],
     tags: ['AWS', 'Community', 'Events'],
   },
   {
@@ -222,6 +234,7 @@ export const journey = [
     org: 'IBIT Sports Society',
     description:
       'Planning and coordinating university sports events, and captaining the IBIT University football team.',
+    achievements: ['Team Captain'],
     tags: ['Leadership', 'Event Planning', 'Teamwork'],
   },
   {
@@ -231,6 +244,7 @@ export const journey = [
     org: 'BDS-IBIT Society',
     description:
       'Helped run the campaign and encouraged students to donate. Received a Certificate of Appreciation from Shaukat Khanum Memorial Cancer Hospital.',
+    achievements: ['Certificate of Appreciation'],
     tags: ['Organizing', 'Outreach'],
   },
 ];

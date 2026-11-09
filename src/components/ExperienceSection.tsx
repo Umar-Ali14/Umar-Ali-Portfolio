@@ -1,4 +1,4 @@
-import { Calendar, Cloud, HeartHandshake, Trophy, Users } from 'lucide-react';
+import { Award, Calendar, Cloud, HeartHandshake, Trophy, Users } from 'lucide-react';
 import SectionHeader from './SectionHeader';
 import Reveal from './Reveal';
 import { journey } from '@/data/portfolio';
@@ -39,6 +39,20 @@ const ExperienceSection = () => {
                 <p className="mt-1 text-sm text-muted-foreground">{item.org}</p>
 
                 <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+
+                {item.achievements && item.achievements.length > 0 && (
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {item.achievements.map((a) => (
+                      <span
+                        key={a}
+                        className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/40 bg-amber-400/10 px-3 py-1 text-xs font-semibold text-amber-300 shadow-[0_0_12px_-4px_hsl(43_96%_56%/0.6)]"
+                      >
+                        <Award className="h-3.5 w-3.5" />
+                        {a}
+                      </span>
+                    ))}
+                  </div>
+                )}
 
                 <div className="mt-5 flex flex-wrap gap-2">
                   {item.tags.map((t) => (
