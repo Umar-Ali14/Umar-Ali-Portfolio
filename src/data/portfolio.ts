@@ -20,27 +20,34 @@ export const profile = {
 
 export const heroStack = ['AWS', 'Terraform', 'GitHub Actions', 'Networking', 'Security', 'Python', 'Linux'];
 
+export const aboutIntro = [
+  "I'm a BBIT student at the University of the Punjab, passionate about cloud engineering and building practical solutions on AWS. I enjoy designing cloud infrastructure, automating deployments, and exploring ways to make systems more secure, reliable, and cost-efficient.",
+  "Through hands-on projects, I'm developing my skills in AWS, Terraform, CI/CD, and cloud automation while continuously expanding my engineering knowledge.",
+];
+
 export const services = [
   {
-    title: 'AWS Infrastructure',
-    description: 'VPCs, EC2, S3, CloudFront and Route 53 set up with security and cost in mind.',
+    title: 'AWS Cloud Infrastructure',
+    description:
+      'Designing and deploying AWS infrastructure using services like VPC, EC2, S3, CloudFront, and Route 53, with a focus on security and cost optimization.',
   },
   {
     title: 'Infrastructure as Code',
-    description: 'Reusable Terraform modules with separate Dev, Staging and Production environments.',
+    description:
+      'Building reusable Terraform modules and managing separate Development, Staging, and Production environments.',
   },
   {
-    title: 'CI/CD & Automation',
-    description: 'GitHub Actions pipelines using IAM OIDC, plus Python (boto3) and Lambda automation.',
+    title: 'CI/CD & Cloud Automation',
+    description:
+      'Implementing GitHub Actions deployment pipelines using IAM OIDC, alongside Python (boto3) and AWS Lambda for automation.',
   },
 ];
 
 export const education = [
   {
-    degree: 'BBIT',
-    full: 'Bachelor of Business & Information Technology',
-    institution: 'University of the Punjab, Quaid-e-Azam Campus, Lahore',
-    period: 'Sep 2024 — Jun 2028',
+    degree: 'BBIT – Bachelor of Business & Information Technology',
+    institution: 'University of the Punjab, Quaid-e-Azam Campus, Lahore.',
+    period: 'September 2024 – June 2028',
   },
 ];
 
@@ -67,7 +74,13 @@ export const skillGroups = [
   },
 ];
 
-export const learning = ['Docker & Containers', 'AWS Systems Manager', 'AWS Cloud Practitioner', 'Kubernetes'];
+export const learning = [
+  'Docker & Containers',
+  'AWS Systems Manager',
+  'Kubernetes',
+  'AWS Agentic AI',
+  'AI Cloud Engineering',
+];
 
 export type Project = {
   category: string;
