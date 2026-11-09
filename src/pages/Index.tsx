@@ -3,26 +3,28 @@ import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import SkillsSection from '@/components/SkillsSection';
 import ProjectsSection from '@/components/ProjectsSection';
-import EducationSection from '@/components/EducationSection';
+import ExperienceSection from '@/components/ExperienceSection';
+import CertificationsSection from '@/components/CertificationsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
-import CloudBackground from '@/components/CloudBackground';
+import SpaceBackground from '@/components/SpaceBackground';
 
 const Index = () => {
   return (
-    <main className="min-h-screen bg-background relative">
-      <CloudBackground />
-      <div className="relative" style={{ zIndex: 1 }}>
-        <Navbar />
+    <div className="relative min-h-screen overflow-x-hidden">
+      <SpaceBackground />
+      <Navbar />
+      <main>
         <HeroSection />
         <AboutSection />
         <SkillsSection />
         <ProjectsSection />
-        <EducationSection />
+        <ExperienceSection />
+        <CertificationsSection />
         <ContactSection />
-        <Footer />
-      </div>
-    </main>
+      </main>
+      <Footer />
+    </div>
   );
 };
 

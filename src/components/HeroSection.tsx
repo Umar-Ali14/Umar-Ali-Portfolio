@@ -1,112 +1,108 @@
-import { ArrowDown, Download, Github, Linkedin, Mail } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import ParticleBackground from '@/components/ParticleBackground';
-import heroBackground from '@/assets/hero-background.avif';
+import { ArrowDown, ArrowUpRight, Cloud, Download, GitBranch, Server, ShieldCheck } from 'lucide-react';
 import profilePhoto from '@/assets/profile-photo.jpg';
+import { heroStack, profile } from '@/data/portfolio';
 
 const HeroSection = () => {
   return (
-    <section 
-      id="hero" 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ 
-        backgroundImage: `url(${heroBackground})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
-      <ParticleBackground />
-      
-      {/* Glow Effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-slow" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-pulse-slow animation-delay-400" />
+    <section id="home" className="relative flex min-h-screen items-center px-4 pb-20 pt-28 md:px-8">
+      <div className="container-wide grid w-full items-center gap-14 lg:grid-cols-[1.1fr_1fr]">
+        {/* Text */}
+        <div className="order-2 lg:order-1">
+          <span className="reveal is-visible inline-flex items-center gap-2 rounded-full border border-border bg-secondary/50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-primary">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+            {profile.headline}
+          </span>
 
-      <div className="container-narrow relative z-10 px-4 py-20">
-        <div className="flex flex-col items-center text-center">
-          {/* Avatar */}
-          <div className="relative mb-8 animate-fade-up">
-            <div className="w-36 h-36 md:w-44 md:h-44 rounded-full bg-gradient-to-br from-primary to-primary-glow p-1 glow-effect">
-              <img 
-                src={profilePhoto} 
-                alt="Umar Ali" 
-                className="w-full h-full rounded-full object-cover"
+          <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+            I Build
+            <br />
+            <span className="text-primary">Scalable Cloud</span>
+            <br />
+            &amp; DevOps Systems.
+          </h1>
+
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            BBIT student at the University of the Punjab building AWS infrastructure with Terraform, GitHub Actions and
+            Lambda — secure by default, automated end to end, and mindful of cost.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-4">
+            <a href="#projects" className="btn-primary">
+              Explore My Work <ArrowUpRight className="h-4 w-4" />
+            </a>
+            <a href={profile.resume} target="_blank" rel="noopener noreferrer" className="btn-outline">
+              Download CV <Download className="h-4 w-4" />
+            </a>
+          </div>
+
+          <p className="mt-8 flex items-center gap-2 text-sm text-muted-foreground">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
+            </span>
+            Open to remote Cloud / DevOps internships
+          </p>
+
+          <div className="mt-6 flex flex-wrap gap-2">
+            {heroStack.map((t) => (
+              <span key={t} className="chip px-3 py-1.5">
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Portrait */}
+        <div className="relative order-1 mx-auto w-full max-w-[420px] lg:order-2">
+          <div className="relative aspect-square">
+            <div className="absolute inset-[-6%] animate-spin-slow rounded-full border border-dashed border-primary/20" />
+            <div className="absolute inset-0 rounded-full bg-primary/20 blur-3xl" />
+            <div className="relative h-full w-full rounded-full border-2 border-primary/70 p-2 shadow-[0_0_60px_-10px_hsl(212_100%_56%/0.6)]">
+              <img
+                src={profilePhoto}
+                alt={profile.name}
+                className="h-full w-full rounded-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-2 -right-2 bg-primary rounded-full p-2 animate-float">
-              <span className="text-lg">☁️</span>
-            </div>
-          </div>
 
-          {/* Text Content */}
-          <div className="space-y-6 max-w-3xl">
-            <p className="text-primary font-medium tracking-wider uppercase text-sm animate-fade-up animation-delay-200">
-              Cloud Solutions Architect
-            </p>
-            
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight animate-fade-up animation-delay-400">
-              Hi, I'm{' '}
-              <span className="gradient-text">Umar Ali</span>
-            </h1>
-            
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed animate-fade-up animation-delay-600">
-              BBIT student and Junior Cloud Engineer building scalable, resilient systems—specializing in Cloud & DevOps (AWS, Terraform, CI/CD) and integrating AI-driven tools to optimize operations and accelerate delivery.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-4 animate-fade-up animation-delay-800">
-              <Button variant="hero" size="lg" asChild>
-                <a href="#contact">
-                  <Mail className="w-5 h-5" />
-                  Contact Me
-                </a>
-              </Button>
-              <Button variant="heroOutline" size="lg" asChild>
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                  <Download className="w-5 h-5" />
-                  Download Resume
-                </a>
-              </Button>
+            {/* Floating info cards */}
+            <div className="card-surface animate-float-y absolute -left-4 top-6 hidden items-center gap-3 px-4 py-3 sm:flex">
+              <span className="icon-box h-9 w-9">
+                <Cloud className="h-4 w-4" />
+              </span>
+              <div>
+                <p className="text-[11px] text-muted-foreground">Building</p>
+                <p className="text-sm font-semibold text-foreground">AWS Infrastructure</p>
+              </div>
             </div>
 
-            {/* Social Links */}
-            <div className="flex items-center justify-center gap-4 pt-6 animate-fade-up animation-delay-800">
-              <a 
-                href="https://github.com/Umar-Ali14" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-3 rounded-full bg-secondary hover:bg-primary/20 transition-colors duration-300 group"
-                aria-label="GitHub Profile"
-              >
-                <Github className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-              </a>
-              <a 
-                href="https://www.linkedin.com/in/umar-ali-043b13274/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-3 rounded-full bg-secondary hover:bg-primary/20 transition-colors duration-300 group"
-                aria-label="LinkedIn Profile"
-              >
-                <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-              </a>
-              <a 
-                href="mailto:meumaralli10@gmail.com"
-                className="p-3 rounded-full bg-secondary hover:bg-primary/20 transition-colors duration-300 group"
-                aria-label="Email"
-              >
-                <Mail className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-              </a>
+            <div
+              className="card-surface animate-float-y absolute -right-6 top-1/3 hidden items-center gap-2 px-3 py-2 text-xs text-muted-foreground sm:flex"
+              style={{ animationDelay: '1.5s' }}
+            >
+              <GitBranch className="h-3.5 w-3.5 text-primary" />
+              IaC &amp; CI/CD
             </div>
-          </div>
 
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-            <a href="#about" aria-label="Scroll to About section">
-              <ArrowDown className="w-6 h-6 text-muted-foreground" />
-            </a>
+            <div
+              className="card-surface animate-float-y absolute -bottom-2 left-1/2 hidden -translate-x-1/2 items-center gap-2 whitespace-nowrap px-4 py-2 text-xs text-muted-foreground sm:flex"
+              style={{ animationDelay: '3s' }}
+            >
+              <Server className="h-3.5 w-3.5 text-primary" />
+              Cloud • DevOps • Automation
+              <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
+            </div>
           </div>
         </div>
       </div>
+
+      <a
+        href="#about"
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-1 text-[11px] uppercase tracking-[0.3em] text-muted-foreground/70 md:flex"
+      >
+        Scroll
+        <ArrowDown className="h-4 w-4 animate-bounce" />
+      </a>
     </section>
   );
 };
