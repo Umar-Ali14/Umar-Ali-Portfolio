@@ -9,7 +9,7 @@ export const profile = {
   name: 'Umar Ali',
   initials: 'UA',
   role: 'Cloud & DevOps Engineer',
-  headline: 'Aspiring Cloud & DevOps Engineer',
+  headline: 'AWS Cloud Engineer',
   email: 'mianumarali7221@gmail.com',
   location: 'Lahore, Pakistan',
   github: 'https://github.com/Umar-Ali14',
@@ -18,7 +18,7 @@ export const profile = {
   siteRepo: 'https://github.com/Umar-Ali14/umar-cloud-folio',
 };
 
-export const heroStack = ['AWS', 'Terraform', 'GitHub Actions', 'Lambda', 'Python', 'Linux'];
+export const heroStack = ['AWS', 'Terraform', 'GitHub Actions', 'Networking', 'Security', 'Python', 'Linux'];
 
 export const services = [
   {

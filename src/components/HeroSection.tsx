@@ -5,7 +5,7 @@ import { heroStack, profile } from '@/data/portfolio';
 const HeroSection = () => {
   return (
     <section id="home" className="relative flex min-h-screen items-center px-4 pb-20 pt-28 md:px-8">
-      <div className="container-wide grid w-full items-center gap-14 lg:grid-cols-[1.1fr_1fr]">
+      <div className="container-wide grid w-full items-center gap-14 lg:grid-cols-[1.3fr_1fr]">
         {/* Text */}
         <div className="order-2 lg:order-1">
           <span className="reveal is-visible inline-flex items-center gap-2 rounded-full border border-border bg-secondary/50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-primary">
@@ -13,17 +13,17 @@ const HeroSection = () => {
             {profile.headline}
           </span>
 
-          <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+          <h1 className="mt-6 text-[2.6rem] font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-6xl lg:text-[3.1rem] xl:text-[3.75rem]">
             I Build
             <br />
-            <span className="text-primary">Scalable Cloud</span>
+            <span className="text-primary">Secure &amp; Scalable</span>
             <br />
-            &amp; DevOps Systems.
+            Cloud Infrastructure.
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            BBIT student at the University of the Punjab building AWS infrastructure with Terraform, GitHub Actions and
-            Lambda — secure by default, automated end to end, and mindful of cost.
+            Turning cloud concepts into practical solutions through infrastructure automation, secure architecture, and
+            cost-aware engineering. Focused on automation, security, reliability, and cost optimization.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -40,7 +40,7 @@ const HeroSection = () => {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
             </span>
-            Open to remote Cloud / DevOps internships
+            Open to Remote Work and Internship
           </p>
 
           <div className="mt-6 flex flex-wrap gap-2">
