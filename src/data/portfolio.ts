@@ -18,6 +18,7 @@ export const profile = {
   location: 'Lahore, Pakistan',
   github: 'https://github.com/Umar-Ali14',
   linkedin: 'https://www.linkedin.com/in/umar-ali-043b13274/',
+  linkedinCertifications: 'https://www.linkedin.com/in/umar-ali-043b13274/details/certifications/',
   resume: '/resume.pdf',
   siteRepo: 'https://github.com/Umar-Ali14/umar-cloud-folio',
 };

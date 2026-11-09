@@ -1,8 +1,8 @@
-import { Award, BadgeCheck, Eye, ExternalLink } from 'lucide-react';
+import { ArrowUpRight, Award, BadgeCheck, Eye, ExternalLink, Linkedin } from 'lucide-react';
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import SectionHeader from './SectionHeader';
 import Reveal from './Reveal';
-import { certifications } from '@/data/portfolio';
+import { certifications, profile } from '@/data/portfolio';
 
 const CertificationsSection = () => {
   return (
@@ -55,13 +55,31 @@ const CertificationsSection = () => {
                       <ExternalLink className="h-4 w-4" /> View credential
                     </a>
                   ) : (
-                    <span className="text-sm text-muted-foreground">Listed on my CV</span>
+                    <a
+                      href={profile.linkedinCertifications}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                    >
+                      <Linkedin className="h-4 w-4" /> View on LinkedIn
+                    </a>
                   )}
                 </div>
               </Reveal>
             );
           })}
         </div>
+
+        <Reveal className="mt-12 text-center">
+          <a
+            href={profile.linkedinCertifications}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-outline"
+          >
+            <Linkedin className="h-4 w-4" /> View All Certifications on LinkedIn <ArrowUpRight className="h-4 w-4" />
+          </a>
+        </Reveal>
       </div>
     </section>
   );
