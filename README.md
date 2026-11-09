@@ -2,7 +2,7 @@
 
 ## Project info
 
-**URL**: 
+**Live portfolio**: https://umar-cloud-folio.lovable.app
 
 ## How can I edit this code?
 
