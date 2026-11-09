@@ -1,5 +1,5 @@
 import { ArrowDown, ArrowUpRight, Cloud, Download, GitBranch, Server, ShieldCheck } from 'lucide-react';
-import profilePhoto from '@/assets/profile-photo.jpg';
+import profilePhoto from '@/assets/profile-photo.webp';
 import { heroStack, profile } from '@/data/portfolio';
 
 const HeroSection = () => {
@@ -62,6 +62,15 @@ const HeroSection = () => {
                 src={profilePhoto}
                 alt={profile.name}
                 className="h-full w-full rounded-full object-cover"
+              />
+              {/* Soft navy fade: blends the photo's grey backdrop into the page, keeps the face untouched */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-2 rounded-full"
+                style={{
+                  background:
+                    'radial-gradient(circle at 50% 44%, transparent 0%, transparent 46%, hsl(224 71% 4% / 0.35) 62%, hsl(224 71% 4% / 0.7) 80%, hsl(224 71% 4% / 0.9) 100%)',
+                }}
               />
             </div>
 
