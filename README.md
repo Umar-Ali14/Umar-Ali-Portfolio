@@ -1,73 +1,47 @@
-# Welcome to your Lovable project
+# Umar Ali — Cloud & DevOps Portfolio
 
-## Project info
+Personal portfolio of **Umar Ali**, an aspiring Cloud & DevOps Engineer and BBIT student at the University of the Punjab.
 
-**Live portfolio**: https://umar-cloud-folio.lovable.app
+**Live site**: _coming soon on Vercel_
 
-## How can I edit this code?
+## Sections
 
-There are several ways of editing your application.
+- **About**: background, education and what I do
+- **Skills**: AWS, Terraform, CI/CD, Linux and scripting
+- **Projects**: hands-on AWS projects with links to their repos
+  - [Multi-Environment AWS Infrastructure](https://github.com/Umar-Ali14/multi-environment-aws-infrastructure)
+  - [CI/CD Pipeline for Automated S3 Deployment](https://github.com/Umar-Ali14/cicd-cloud-project)
+  - [AWS Cost Optimization System](https://github.com/Umar-Ali14/aws-cost-optimizer-system)
+  - [Static Website with Global CDN](https://github.com/Umar-Ali14/s3-cloudfront-static-website)
+- **Journey**: community and leadership roles
+- **Certifications**: AWS training, Linux and cloud courses
+- **Contact**: message form (stored in Supabase), email and LinkedIn
 
-**Use Lovable**
+## Tech stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+React · TypeScript · Vite · Tailwind CSS · shadcn/ui · Supabase · Vercel
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Run locally
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The site runs at http://localhost:8080 (Vite picks the next free port if 8080 is taken).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Update content
 
-**Use GitHub Codespaces**
+All personal content (profile, skills, projects, journey, certifications) lives in
+[`src/data/portfolio.ts`](src/data/portfolio.ts). Edit that file; the layout updates automatically.
+The CV served by the "Download CV" button is [`public/resume.pdf`](public/resume.pdf).
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Deploy
 
-## What technologies are used for this project?
+The site deploys on [Vercel](https://vercel.com) from the `main` branch. Every push to `main` triggers a new deployment.
 
-This project is built with:
+## Contact
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- Email: mianumarali7221@gmail.com
+- LinkedIn: [umar-ali-043b13274](https://www.linkedin.com/in/umar-ali-043b13274/)
+- GitHub: [Umar-Ali14](https://github.com/Umar-Ali14)
