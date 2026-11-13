@@ -42,6 +42,6 @@ The site deploys on [Vercel](https://vercel.com) from the `main` branch. Every p
 
 ## Contact
 
-- Email: mianumarali7221@gmail.com
+- Email: contact@umarali.dev
 - LinkedIn: [umar-ali-043b13274](https://www.linkedin.com/in/umar-ali-043b13274/)
 - GitHub: [Umar-Ali14](https://github.com/Umar-Ali14)
