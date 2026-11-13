@@ -14,7 +14,7 @@ export const profile = {
   initials: 'UA',
   role: 'Cloud & DevOps Engineer',
   headline: 'AWS Cloud Engineer',
-  email: 'mianumarali7221@gmail.com',
+  email: 'contact@umarali.dev',
   location: 'Lahore, Pakistan',
   // Business WhatsApp: number is international format without "+" or the local leading 0 (used in wa.me links)
   whatsapp: { number: '923402355989', display: '+92 340 2355989' },
