@@ -4,7 +4,7 @@ import ibmCloudCertificate from '@/assets/certificates/ibm-cloud-certificate.jpg
 import adbiAiCertificate from '@/assets/certificates/adbi-ai-social-impact-certificate.jpg';
 import hpAiCertificate from '@/assets/certificates/hp-ai-business-certificate.jpg';
 import awsZeroToHeroCertificate from '@/assets/certificates/aws-zero-to-hero-certificate.png';
-import multiEnvArchitecture from '@/assets/architecture/multi-environment-infrastructure.svg';
+import multiEnvArchitecture from '@/assets/architecture/multi-environment-infrastructure.webp';
 import cicdArchitecture from '@/assets/architecture/cicd-pipeline.webp';
 import costOptimizerArchitecture from '@/assets/architecture/aws-cost-optimizer.webp';
 import staticSiteArchitecture from '@/assets/architecture/static-website-cdn.svg';
