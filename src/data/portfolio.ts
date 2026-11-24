@@ -136,17 +136,18 @@ export const projects: Project[] = [
     category: 'Infrastructure as Code',
     title: 'Multi-Environment AWS Infrastructure',
     summary:
-      'Terraform modules that deploy isolated Dev, Staging and Production AWS environments, keeping infrastructure consistent.',
+      'Five Terraform modules deploying isolated Dev, Staging and Production AWS environments with built-in alerting.',
     description:
-      'Reusable Terraform modules (network, security, compute) that build separate Dev, Staging and Production environments, each with its own VPC, settings and state.',
+      'Five reusable Terraform modules (network, security, IAM, compute, monitoring) that deploy isolated Development, Staging and Production environments in us-east-1, each with its own VPC (10.0 / 10.1 / 10.2.0.0/16), variables and Terraform state.',
     highlights: [
-      'VPC with public/private subnets, IGW and route tables; NAT Gateway left out to keep costs low',
-      'Backend reachable only from the frontend security group; no SSH, shell access via Systems Manager',
-      'Amazon Linux 2023 with IMDSv2 enforced, encrypted gp3 volumes, tagged resources, pinned providers',
+      'Public subnet runs an nginx frontend EC2 open on HTTP/HTTPS only; the backend EC2 sits in a private subnet with no public IP, reachable on port 8080 from the frontend security group only',
+      'IAM role gives both servers temporary credentials via IMDSv2; access is through Session Manager, with no SSH, no port 22 and no stored keys',
+      'CloudWatch CPU and status-check alarms email the engineer through SNS when a server fails or CPU stays high',
+      'Amazon Linux 2023 with encrypted gp3 volumes, t3.micro in Dev/Staging and t3.small in Production; no NAT Gateway (about $99/month saved), all resources tagged and versions pinned',
     ],
     impact:
       'Promotes consistent infrastructure across environments, reduces configuration drift, and simplifies infrastructure management.',
-    tags: ['Terraform', 'VPC', 'EC2', 'Security Groups'],
+    tags: ['Terraform', 'VPC', 'EC2', 'IAM', 'CloudWatch'],
     flow: ['Dev', 'Staging', 'Production'],
     repo: 'https://github.com/Umar-Ali14/multi-environment-aws-infrastructure',
     architecture: multiEnvArchitecture,
