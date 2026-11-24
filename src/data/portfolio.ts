@@ -127,7 +127,6 @@ export type Project = {
   flow: string[]; // simple architecture flow shown on the card header
   repo?: string;
   demo?: string;
-  status?: 'In Progress';
   impact?: string; // "Business Impact" note, shown in the details popup
   architecture?: string; // diagram opened by the "View Architecture" button
 };
