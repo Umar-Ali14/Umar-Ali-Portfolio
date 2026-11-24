@@ -58,12 +58,6 @@ const ProjectsSection = () => {
                     <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                     {project.category}
                   </span>
-                  {project.status && (
-                    <span className="absolute right-4 top-4 rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-amber-400">
-                      {project.status}
-                    </span>
-                  )}
-
                   <div className="relative flex h-full items-center justify-center pt-4">
                     <FlowDiagram flow={project.flow} />
                   </div>

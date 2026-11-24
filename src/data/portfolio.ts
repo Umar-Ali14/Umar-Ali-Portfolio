@@ -150,7 +150,6 @@ export const projects: Project[] = [
     flow: ['Dev', 'Staging', 'Production'],
     repo: 'https://github.com/Umar-Ali14/multi-environment-aws-infrastructure',
     architecture: multiEnvArchitecture,
-    status: 'In Progress',
   },
   {
     category: 'CI/CD',
